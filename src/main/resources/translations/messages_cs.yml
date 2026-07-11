@@ -1,0 +1,17 @@
+# ==================================================================== #
+#                     UnwaxSigns – Language File (Czech)               #
+#          Podporuje MiniMessage formátování (<red>, <hover>, etc.)    #
+# ==================================================================== #
+
+# Common prefix
+prefix: "<yellow>[UnwaxSigns]</yellow> "
+
+messages:
+  usage: "<yellow>použití:</yellow> <white>/unwaxsigns reload</white>"
+  no-permission: "<red>Nemáte oprávnění!</red>"
+  reload-success: "<green>Konfigurace a překlady byly úspěšně znovu načteny.</green>"
+  reload-fail: "<red>Načtení konfigurace se nezdařilo. Podrobnosti najdete v konzoli.</red>"
+  sneak-required: "<gray>Skrčte se, abyste odstranili vosk z cedulí.</gray>"
+  wrong-custom-name: "<red>Nástroj musí mít název: <yellow>%required_name%</yellow>.</red>"
+  wrong-enchantment: "<red>Nástroj vyžaduje správné očarování: <yellow>%required_enchantment%</yellow>.</red>"
+  not-enough-money: "<red>K odstranění vosku z cedulí potřebujete <yellow>%cost%</yellow>.</red>"

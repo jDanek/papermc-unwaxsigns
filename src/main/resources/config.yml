@@ -1,0 +1,111 @@
+# =====================================================================
+# CONFIGURATION
+# =====================================================================
+
+# Config version for future migrations
+config-version: 1
+
+settings:
+  language: "en"
+  # If false, the plugin ignores permissions and works for everyone.
+  use-permissions: true
+
+  # If false, the plugin is completely silent when blocking an action.
+  # No message or sound will be displayed.
+  notify-on-denial: true
+
+  # Where to send denial notifications.
+  # Valid options: actionbar, chat, none (case-insensitive).
+  #   actionbar - Message appears above the hotbar.
+  #   chat      - Message appears in the chat.
+  #   none      - No message is sent.
+  notification-type: "actionbar"
+
+  # If true, player must be sneaking to unwax
+  require-sneaking: false
+
+  # If true, the plugin tests region-protection plugins (WorldGuard, GriefPrevention, etc.)
+  # by firing a synthetic BlockBreakEvent. Disable if this conflicts with another plugin
+  # that reacts to BlockBreakEvent (e.g. stats/quest plugins) without respecting cancellation.
+  region-protection-check: true
+
+  # Cooldown between unwax attempts (in milliseconds). 0 = disabled.
+  unwax-cooldown-ms: 500
+
+  # Cooldown per sign block (in milliseconds). Prevents rapid re-farming of the
+  # same sign if something else (redstone, command block) re-waxes it quickly. 0 = disabled.
+  unwax-block-cooldown-ms: 0
+
+  # When the wax is removed from the sign, it falls to the ground
+  drop-on-unwax: false
+
+  # Loot-table style drop configuration
+  drop:
+    material: "honeycomb"
+    min-amount: 1
+    max-amount: 1
+    chance: 1.0
+
+  # Log unwax actions to console
+  log-unwax-actions: true
+
+  # Log denied attempts (protected regions, etc.)
+  log-denied-attempts: false
+
+  # World restrictions
+  # Valid options: disabled, blacklist, whitelist
+  world-restriction-mode: "disabled"
+  restricted-worlds:
+    - "spawn"
+
+  # Economy cost per unwax. 0.0 = free. Requires Vault.
+  cost-per-unwax: 0.0
+
+
+# Tool detection settings
+tool-settings:
+  # If true, durability will be consumed when the tool is used
+  consume-durability: true
+  durability-cost: 1
+
+  # How the plugin determines which items can unwax signs.
+  # Valid options: tag, list (case-insensitive).
+  #   tag  - Uses Minecraft item tags (e.g., #axes). Configure tag-names below.
+  #   list - Uses an explicit list of materials. Configure allowed-items below.
+  mode-type: "tag"
+
+  # Only used when mode-type is "tag".
+  # If true and no valid tags are found, falls back to the #axes tag.
+  use-axes-tag-fallback: true
+
+  # Only used when mode-type is "tag".
+  # List of Minecraft item tags without the # prefix.
+  tag-names:
+    - "axes"
+
+  # Only used when mode-type is "list".
+  # Material names. Namespaces are accepted (e.g., "minecraft:stone_axe").
+  allowed-items:
+    - "stone_axe"
+    - "golden_axe"
+    - "iron_axe"
+    - "diamond_axe"
+    - "netherite_axe"
+    - "brush"
+
+  # Items excluded from allowed tools. Works in both TAG and LIST mode.
+  # Useful for removing specific items from a tag (e.g., wooden_axe from #axes - because of WorldEdit).
+  excluded-items:
+    - "minecraft:wooden_axe"
+
+
+# Tool restrictions
+tool-restrictions:
+  # If true, the tool must have a specific display name.
+  custom-name-required: false
+  required-custom-name: "Wax Remover"
+
+  # If true, the tool must have a specific enchantment at or above the required level.
+  enchantment-required: false
+  required-enchantment: "minecraft:silk_touch"
+  required-enchantment-level: 1

@@ -1,0 +1,39 @@
+name: UnwaxSigns
+version: '1.0.0'
+
+main: eu.jdanek.unwaxsigns.UnwaxSigns
+description: Paper Test Plugin
+author: jDanek
+website: https://github.com/jDanek
+api-version: '26.1'
+softdepend: [Vault]
+
+load: POSTWORLD
+
+commands:
+  unwaxsigns:
+    description: Main command for the UnwaxSigns plugin.
+    default: op
+    permission: unwaxsigns.admin
+    permission-message: You do not have sufficient permissions for this command!
+    aliases: [unwaxsign, uws]
+
+permissions:
+  unwaxsigns.use:
+    description: Allows unwaxing signs
+    default: op
+  unwaxsigns.admin:
+    description: Allows reloading config
+    default: op
+  unwaxsigns.bypass.name:
+    description: Bypass custom name requirement
+    default: op
+  unwaxsigns.bypass.enchantment:
+    description: Bypass enchantment requirement
+    default: op
+  unwaxsigns.bypass.cost:
+    description: Bypass economy cost
+    default: op
+  unwaxsigns.bypass.cooldown:
+    description: Bypass unwax cooldown
+    default: op

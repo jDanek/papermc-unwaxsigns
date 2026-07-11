@@ -1,0 +1,17 @@
+# ==================================================================== #
+#                     UnwaxSigns – Language File (English)             #
+#          Supports MiniMessage formatting (<red>, <hover>, etc.)      #
+# ==================================================================== #
+
+# Common prefix
+prefix: "<yellow>[UnwaxSigns]</yellow> "
+
+messages:
+  usage: "<yellow>Usage:</yellow> <white>/unwaxsigns reload</white>"
+  no-permission: "<red>You do not have permission!</red>"
+  reload-success: "<green>Configuration and translations successfully reloaded.</green>"
+  reload-fail: "<red>Failed to reload configuration. Check console for details.</red>"
+  sneak-required: "<gray>Sneak to unwax signs.</gray>"
+  wrong-custom-name: "<red>The tool must be named: <yellow>%required_name%</yellow>.</red>"
+  wrong-enchantment: "<red>The tool needs the correct enchantment: <yellow>%required_enchantment%</yellow>.</red>"
+  not-enough-money: "<red>You need <yellow>%cost%</yellow> to unwax signs.</red>"

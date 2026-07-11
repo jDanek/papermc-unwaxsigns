@@ -1,0 +1,46 @@
+# =====================================================================
+# EFFECT CONFIGURATION
+#
+# SOUNDS:    Use standard Minecraft names. Dots (.) or namespaces accepted.
+#            Examples: "item.axe.scrape", "minecraft:entity.player.levelup"
+#
+# PARTICLES: Use Bukkit enum names (UPPERCASE with UNDERSCORES).
+#            Examples: "WAX_OFF", "FLAME", "HAPPY_VILLAGER"
+#
+# SOUND-TARGET: Determines who hears the sound.
+#            "world"  - Everyone nearby hears it (positional sound).
+#            "player" - Only the acting player hears it (client-side).
+# =====================================================================
+
+effects:
+  success:
+    # default: "item.axe.scrape"
+    sound: "item.axe.scrape"
+    volume: 1.0
+    pitch: 1.0
+    sound-target: "world"
+
+    # default: "WAX_OFF"
+    particle: "WAX_OFF"
+    particle-enabled: true
+    count: 15
+    offset-x: 0.4
+    offset-y: 0.4
+    offset-z: 0.4
+    extra: 1.0
+
+  failure:
+    # default: "entity.villager.no"
+    sound: "entity.villager.no"
+    volume: 1.0
+    pitch: 1.0
+    sound-target: "player"
+
+    # default: "ANGRY_VILLAGER"
+    particle: "ANGRY_VILLAGER"
+    particle-enabled: true
+    count: 5
+    offset-x: 0.4
+    offset-y: 0.4
+    offset-z: 0.4
+    extra: 1.0
