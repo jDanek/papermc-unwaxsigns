@@ -56,9 +56,9 @@ It's built to disappear into your server: works out of the box with zero configu
 
 For your server's safety, only download UnwaxSigns from official channels:
 
-* **[Modrinth](https://modrinth.com/plugin/unwaxsigns)** - recommended, fastest updates
+
 * **[Hangar](https://hangar.papermc.io/jDanek/UnwaxSigns)** - official PaperMC platform
-* **[SpigotMC](https://www.spigotmc.org/resources/unwaxsigns/)**
+* **[Modrinth](https://modrinth.com/plugin/unwaxsigns)**
 * **[CurseForge](https://www.curseforge.com/minecraft/bukkit-plugins/unwaxsigns)**
 * **[GitHub Releases](https://github.com/jDanek/papermc-unwaxsigns/releases)** - source and dev builds
 
