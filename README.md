@@ -59,7 +59,6 @@ For your server's safety, only download UnwaxSigns from official channels:
 
 * **[Hangar](https://hangar.papermc.io/jDanek/UnwaxSigns)** - official PaperMC platform
 * **[Modrinth](https://modrinth.com/plugin/unwaxsigns)**
-* **[CurseForge](https://www.curseforge.com/minecraft/bukkit-plugins/unwaxsigns)**
 * **[GitHub Releases](https://github.com/jDanek/papermc-unwaxsigns/releases)** - source and dev builds
 
 > Listings go live shortly after the first release - until then, build from source (see below).
