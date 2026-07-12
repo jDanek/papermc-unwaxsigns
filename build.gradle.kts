@@ -56,7 +56,12 @@ tasks {
     }
 }
 
+tasks.jar {
+    enabled = false
+}
+
 tasks.shadowJar {
+    archiveClassifier.set("") // remove "-all" suffix
     configurations = project.configurations.runtimeClasspath.map { setOf(it) }
 
     dependencies {
