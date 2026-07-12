@@ -70,9 +70,11 @@ tool-settings:
 
   # How the plugin determines which items can unwax signs.
   # Valid options: tag, list (case-insensitive).
-  #   tag  - Uses Minecraft item tags (e.g., #axes). Configure tag-names below.
-  #   list - Uses an explicit list of materials. Configure allowed-items below.
-  mode-type: "tag"
+  #   tag   - Uses Minecraft item tags (e.g., #axes). Configure tag-names below.
+  #   list  - Uses an explicit list of materials. Configure allowed-items below.
+  #   combi - Combines tag and list mode: starts with items from tag-names,
+  #           then adds items from allowed-items. Configure both below.
+  mode-type: "combi"
 
   # Only used when mode-type is "tag".
   # If true and no valid tags are found, falls back to the #axes tag.
@@ -93,7 +95,7 @@ tool-settings:
     - "netherite_axe"
     - "brush"
 
-  # Items excluded from allowed tools. Works in both TAG and LIST mode.
+  # Removed from the final allowed tool set, regardless of mode.
   # Useful for removing specific items from a tag (e.g., wooden_axe from #axes - because of WorldEdit).
   excluded-items:
     - "minecraft:wooden_axe"

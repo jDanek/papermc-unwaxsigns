@@ -1,8 +1,10 @@
 package eu.jdanek.unwaxsigns.config;
 
 public enum ToolMode {
-    TAG,
-    LIST;
+    COMBI,
+    LIST,
+    TAG;
+
 
     public static ToolMode fromString(String value) {
         if (value == null) return TAG;

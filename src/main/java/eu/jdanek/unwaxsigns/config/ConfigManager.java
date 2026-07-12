@@ -146,13 +146,21 @@ public class ConfigManager {
         this.allowedTools.clear();
         this.consumeDurabilityEnabled = config.getBoolean("tool-settings.consume-durability", true);
         this.durabilityCost = config.getInt("tool-settings.durability-cost", 1);
-        this.modeType = ToolMode.fromString(config.getString("tool-settings.mode-type", "tag"));
+        this.modeType = ToolMode.fromString(config.getString("tool-settings.mode-type", "combi"));
         this.axesTagFallbackEnabled = config.getBoolean("tool-settings.use-axes-tag-fallback", true);
 
         switch (getModeType()) {
             case LIST -> loadListMode(config);
-            // the TAG option is the default; there is no need to duplicate the logic
-            default -> loadTagMode(config);
+            case TAG -> {
+                loadTagModeItems(config);
+                applyAxesFallbackIfEmpty();
+            }
+            // the COMBI option is the default; there is no need to duplicate the logic
+            default -> {
+                loadTagModeItems(config);
+                loadListMode(config);
+                applyAxesFallbackIfEmpty();
+            }
         }
 
         loadExcludedItems(config);
@@ -173,7 +181,47 @@ public class ConfigManager {
         }
     }
 
-    private void loadTagMode(FileConfiguration config) {
+    private void loadTagModeItems(FileConfiguration config) {
+        List<String> tagNames = config.getStringList("tool-settings.tag-names");
+
+        if (tagNames.isEmpty()) {
+            tagNames.add("axes");
+        }
+
+        for (String tagName : tagNames) {
+            NamespacedKey tagKey = NamespacedKeyUtil.fromString(tagName);
+
+            if (tagKey == null) {
+                continue;
+            }
+
+            Tag<Material> itemTag = plugin.getServer().getTag(Tag.REGISTRY_ITEMS, tagKey, Material.class);
+
+            if (itemTag == null) {
+                logger.warning("The Minecraft tag '#" + tagName + "' does not exist! I'm skipping it.");
+            } else {
+                this.allowedTools.addAll(itemTag.getValues());
+            }
+        }
+    }
+
+    private void applyAxesFallbackIfEmpty() {
+        if (this.allowedTools.isEmpty()) {
+            if (this.axesTagFallbackEnabled) {
+                logger.severe("No valid tools were found! As a fallback, I'm allowing axes.");
+                Tag<Material> fallback = plugin.getServer().getTag(Tag.REGISTRY_ITEMS, NamespacedKey.minecraft("axes"), Material.class);
+                if (fallback != null) {
+                    this.allowedTools.addAll(fallback.getValues());
+                }
+            } else {
+                logger.severe("--- CRITICAL CONFIGURATION ERROR ---");
+                logger.severe("No valid tools were found and the axe fallback is DISABLED!");
+                logger.severe("The plugin will not work for any tools until the configuration is fixed.");
+            }
+        }
+    }
+
+    /*private void loadTagMode(FileConfiguration config) {
         List<String> tagNames = config.getStringList("tool-settings.tag-names");
 
         if (tagNames.isEmpty()) {
@@ -209,7 +257,7 @@ public class ConfigManager {
                 logger.severe("The plugin will not work for any tools until the configuration is fixed.");
             }
         }
-    }
+    }*/
 
     private void loadListMode(FileConfiguration config) {
         List<String> itemNames = config.getStringList("tool-settings.allowed-items");
