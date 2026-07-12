@@ -68,7 +68,7 @@ For your server's safety, only download UnwaxSigns from official channels:
 
 ## 🛠️ Installation
 
-1. Download `UnwaxSigns.jar` from one of the platforms above.
+1. Download `UnwaxSigns-<version>.jar` from one of the platforms above.
 2. Drop it into your server's `plugins/` folder.
 3. Start or restart the server - `config.yml`, `effects.yml`, and `translations/` are generated automatically.
 4. Tweak the config to your liking, then apply changes with **`/unwaxsigns reload`**.
