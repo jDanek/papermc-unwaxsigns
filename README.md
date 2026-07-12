@@ -99,7 +99,7 @@ UnwaxSigns doesn't hook into any specific permission or protection plugin's API 
 
 | Permission | Description | Default |
 |---|---|---|
-| `unwaxsigns.use` | Allows unwaxing signs | op |
+| `unwaxsigns.use` | Allows unwaxing signs | true |
 | `unwaxsigns.admin` | Allows reloading the configuration | op |
 | `unwaxsigns.bypass.name` | Bypasses the required custom tool name | op |
 | `unwaxsigns.bypass.enchantment` | Bypasses the required enchantment | op |
