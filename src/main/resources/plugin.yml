@@ -21,7 +21,7 @@ commands:
 permissions:
   unwaxsigns.use:
     description: Allows unwaxing signs
-    default: op
+    default: true
   unwaxsigns.admin:
     description: Allows reloading config
     default: op
